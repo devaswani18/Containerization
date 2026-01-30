@@ -14,5 +14,25 @@
 ![27Jan2](Screenshots/27jan5.png)
 ![27Jan2](Screenshots/27jan6.png)
 
+
+## 29th january
+- practiced Markdown syntax for documentation using online tutorial.
+- created headings, subheadings, bold and italic text.
+- created ordered and unordered lists.
+- inserted links and images using markdown format.
+- practiced writing code blocks and inline code.
+- learned how to structure README files properly.
+
+Reference:
+https://www.markdowntutorial.com/
+
+## 30th january
+
+![27Jan1](Screenshots/27jan1.png)
+![27Jan2](Screenshots/27jan2.png)
+![27Jan2](Screenshots/27jan3.png)
+![27Jan2](Screenshots/27jan4.png)
+![27Jan2](Screenshots/27jan5.png)
+![27Jan2](Screenshots/27jan6.png)
 ---
 
