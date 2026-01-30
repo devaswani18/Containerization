@@ -28,10 +28,10 @@ https://www.markdowntutorial.com/
 
 # 30th january
 
-![27Jan1](Screenshots/27jan1.png)
-![27Jan2](Screenshots/27jan2.png)
-![27Jan2](Screenshots/27jan3.png)
-![27Jan2](Screenshots/27jan4.png)
+![27Jan1](Screenshots/e.png)
+![27Jan2](Screenshots/d.png)
+![27Jan2](Screenshots/f.png)
+![27Jan2](Screenshots/27g.png)
 ![27Jan2](Screenshots/27jan5.png)
 ![27Jan2](Screenshots/27jan6.png)
 
