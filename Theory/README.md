@@ -1,7 +1,9 @@
 # Docker & Containerization – Theory
 
 ## Before 27th january
-
+![27Jan1](Screenshots/a.png)
+![27Jan1](Screenshots/b.jpeg)
+![27Jan1](Screenshots/c.jpeg)
 
 ## 27th and 28th January
 
