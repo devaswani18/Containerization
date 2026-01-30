@@ -15,7 +15,7 @@
 ![27Jan2](Screenshots/27jan6.png)
 
 
-## 29th january
+# 29th january
 - practiced Markdown syntax for documentation using online tutorial.
 - created headings, subheadings, bold and italic text.
 - created ordered and unordered lists.
@@ -26,7 +26,7 @@
 Reference:
 https://www.markdowntutorial.com/
 
-## 30th january
+# 30th january
 
 ![27Jan1](Screenshots/27jan1.png)
 ![27Jan2](Screenshots/27jan2.png)
