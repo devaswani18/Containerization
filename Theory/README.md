@@ -32,8 +32,8 @@ https://www.markdowntutorial.com/
 ![27Jan2](Screenshots/d.png)
 ![27Jan2](Screenshots/f.png)
 ![27Jan2](Screenshots/g.png)
-![27Jan2](Screenshots/27jan5.png)
-![27Jan2](Screenshots/27jan6.png)
+![27Jan2](Screenshots/19.png)
+![27Jan2](Screenshots/20.png)
 
 ---
 
