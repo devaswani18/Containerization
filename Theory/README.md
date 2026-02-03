@@ -38,12 +38,9 @@ https://www.markdowntutorial.com/
 
 # 3rd february
 
-![27Jan1](Screenshots/e.png)
-![27Jan2](Screenshots/d.png)
-![27Jan2](Screenshots/f.png)
-![27Jan2](Screenshots/g.png)
-![27Jan2](Screenshots/19.png)
-![27Jan2](Screenshots/20.jpeg)
+![27Jan1](Screenshots/16.png)
+![27Jan2](Screenshots/17.png)
+
 
 ---
 
