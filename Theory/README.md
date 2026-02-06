@@ -64,5 +64,15 @@ https://www.markdowntutorial.com/
 ![27Jan2](Screenshots/20d.png)
 ![27Jan2](Screenshots/20e.png)
 
+# 6th february
+
+![27Jan1](Screenshots/21a.png)
+![27Jan2](Screenshots/21b.png)
+![27Jan1](Screenshots/21c.png)
+![27Jan2](Screenshots/21d.png)
+![27Jan2](Screenshots/21e.png)
+![27Jan2](Screenshots/21f.png)
+![27Jan2](Screenshots/21g.png)
+
 ---
 
