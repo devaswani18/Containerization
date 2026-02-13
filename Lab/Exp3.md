@@ -10,7 +10,7 @@ docker run -d --name nginx-official -p 8080:80 nginx
 curl http://localhost:8080
 ```
 
-![ ](Screenshots/Exp3/part1.png)
+![ ](Screenshots/Exp3/e1.png)
 
 ## Part 2: Ubuntu base Image
 
@@ -26,8 +26,7 @@ FROM ubuntu:22.04
   CMD ["nginx", "-g", "daemon off;"]
 ```
 
-![ ](Screenshots/Exp3/2-1.png)
-![ ](Screenshots/Exp3/2-2.png)
+![ ](Screenshots/Exp3/e2.png)
 
 ## Part 3: Alpine Base Image
 
@@ -40,13 +39,13 @@ RUN apk update && apk add --no-cache nginx
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
 ```
-![ ](Screenshots/Exp3/3-1.png)
+![ ](Screenshots/Exp3/e3.png)
 
 Using custom HTML :
 ![ ](Screenshots/Exp3/3-2.png)
 
 ## Part 4: Image Size and layer Comparison
-![ ](Screenshots/Exp3/4.png)
+![ ](Screenshots/Expe4.png)
 
 ## Part 5: Using HTML and then cleanup
-![ ](Screenshots/Exp3/5.png)
+![ ](Screenshots/Exp3/e5.png)
