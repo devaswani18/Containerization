@@ -41,11 +41,8 @@ CMD ["nginx", "-g", "daemon off;"]
 ```
 ![ ](Screenshots/Exp3/e3.png)
 
-Using custom HTML :
-![ ](Screenshots/Exp3/3-2.png)
-
 ## Part 4: Image Size and layer Comparison
-![ ](Screenshots/Expe4.png)
+![ ](Screenshots/Exp3/e4.png)
 
 ## Part 5: Using HTML and then cleanup
 ![ ](Screenshots/Exp3/e5.png)
