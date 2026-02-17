@@ -18,9 +18,9 @@
 [Open Experiment 2](Lab/Exp2.md)
 
 ### Experiment 3
-[Open Experiment 3](Lab/Exp3.md)
+[Open Experiment 3](Lab/Exp3a.md)
 
 ### Experiment 4
-[Open Experiment 4](Lab/Exp4.md)
+[Open Experiment 4](Lab/Exp3b.md)
 
 
