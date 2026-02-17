@@ -42,7 +42,7 @@ CMD ["nginx", "-g", "daemon off;"]
 ![ ](Screenshots/Exp3/e3.png)
 
 ## Part 4: Image Size and layer Comparison
-![ ](Screenshots/Exp3/e4.png)
+![ ](Screenshots/Exp3/new.png)
 
 ## Part 5: Using HTML and then cleanup
 ![ ](Screenshots/Exp3/e5.png)
