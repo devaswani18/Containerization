@@ -5,7 +5,7 @@
 1. create separate folder
 2. create a python program:
 
-![python](img/python.png)
+![ ](Screenshots/Exp3/python.png)
 
 3. create docker file with commands:
 
@@ -26,7 +26,7 @@ CMD ["python", "app.py"]
 
 ```
 
-![dockerFile](img/dockerFile.png)
+![ ](Screenshots/Exp3/dockerFile.png)
 
 ---
 
@@ -38,7 +38,7 @@ CMD ["python", "app.py"]
 docker build -t flask-sapid-app .
 ```
 
-![build](img/build.png)
+![ ](Screenshots/Exp3/build.png)
 
 
 2. Check Image:
@@ -47,7 +47,7 @@ docker build -t flask-sapid-app .
 docker images
 ```
 
-![dockerImg](img/dockerImg.png)
+![ ](Screenshots/Exp3/dockerImg.png)
 
 3. Run the image:
 
@@ -55,11 +55,11 @@ docker images
 docker run -d -p 8080:5000 flask-sapid-app:3.0
 ```
 
-![run](img/run.png)
+![ ](Screenshots/Exp3/run.png)
 
 ## Result
 
 Python program running
 
-![web](img/web.png)
+![ ](Screenshots/Exp3/web.png)
 
