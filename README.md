@@ -17,10 +17,10 @@
 ### Experiment 2
 [Open Experiment 2](Lab/Exp2.md)
 
-### Experiment 3
-[Open Experiment 3](Lab/Exp3a.md)
+### Experiment 3a
+[Open Experiment 3a](Lab/Exp3a.md)
 
-### Experiment 4
-[Open Experiment 4](Lab/Exp3b.md)
+### Experiment 3b
+[Open Experiment 3b](Lab/Exp3b.md)
 
 
