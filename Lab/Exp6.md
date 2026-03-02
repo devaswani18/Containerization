@@ -200,7 +200,25 @@ curl localhost:3001
 (Shows advanced-node-app running in production mode)
 
 ---
+### Multi-Stage Dockerfile with Compose
+ - Requirement:
+   - Create a simple Python FastAPI or Node production-ready app using:
+      - Multi-stage Dockerfile
+      - Smaller final image
+      - Use Compose to build it
+ - Must:
+   - Write multi-stage Dockerfile
+   - Use build: in Compose
+   - Add environment variables
+   - Add volume mount for development mode
+   - Compare image size: `docker images`
 
+
+- Build and Run :
+  
+![ ](Screenshots/Exp6/28j.png)
+
+![ ](Screenshots/Exp6/28k.png)
 # 🧠 Difference Between Docker Run & Docker Compose
 
 | Feature | Docker Run | Docker Compose |
