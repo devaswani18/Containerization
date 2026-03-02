@@ -2,13 +2,6 @@
 # Comparison of Docker Run vs Docker Compose | Multi-Stage Build | Networking
 
 ---
-
-## 👨‍💻 Name: Dev Aswani  
-## 📚 Subject: Docker & Containerization Lab  
-## 🏫 Course: B.Tech CSE  
-
----
-
 # 🎯 Aim
 
 To study and implement:
