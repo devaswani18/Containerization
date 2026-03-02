@@ -23,4 +23,8 @@
 ### Experiment 3b
 [Open Experiment 3b](Lab/Exp3b.md)
 
+### Experiment 4
+[Open Experiment 4](Lab/Exp4.md)
 
+### Experiment 6
+[Open Experiment 6](Lab/Exp6.md)
