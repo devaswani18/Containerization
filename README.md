@@ -31,5 +31,9 @@
 ### Experiment 4
 [Open Experiment 4](Lab/Exp4.md)
 
+### Experiment 5
+[Open Experiment 5](Lab/Exp5.md)
+
+
 ### Experiment 6
 [Open Experiment 6](Lab/Exp6.md)
