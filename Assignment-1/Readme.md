@@ -149,67 +149,6 @@ docker ps
 
 ---
 
-# API Endpoints
-
-### Health Check
-
-```
-GET /health
-```
-
-Example:
-
-```
-http://localhost:5000/health
-```
-
-Response
-
-```json
-{
-"status":"OK"
-}
-```
-
----
-
-### Insert User
-
-```
-POST /users
-```
-
-Example request:
-
-```json
-{
-"name":"Rishu",
-"email":"rajrishu1401@gmail.com"
-}
-```
-
----
-
-### Fetch Users
-
-```
-GET /users
-```
-
-Response
-
-```json
-[
- {
-  "id":1,
-  "name":"Rishu",
-  "email":"rajrishu1401@gmail.com"
- }
-]
-```
-
----
-
 # Testing API using curl
 
 # Application Usage
@@ -218,7 +157,7 @@ The application can be accessed through the frontend interface.
 
 Open the frontend in a browser:
 
-http://172.24.10.30
+http://localhost:8080
 
 The interface allows users to:
 
@@ -248,26 +187,6 @@ Steps:
 2. The frontend sends a request to the backend.
 3. Backend retrieves records from PostgreSQL.
 4. Records are displayed on the page.
-
----
-
-# Health Check
-
-The frontend also provides a **Health Check button**.
-
-When clicked:
-
-Frontend → sends request to backend `/health` endpoint.
-
-Expected response:
-
-{
-  "status": "OK"
-}
-
-This confirms the backend service is operational.
-
-![web](images/web.png)
 
 ---
 
