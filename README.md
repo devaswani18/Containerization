@@ -9,6 +9,11 @@
 
 ---
 
+##  Assignment-1
+[Open Assignment-1](Assignment-1/Readme.md)
+
+---
+
 ##  Lab Experiments
 
 ### Experiment 1
