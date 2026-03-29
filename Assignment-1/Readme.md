@@ -150,9 +150,11 @@ http://localhost:8080
 
 The **Task Manager** interface allows users to:
 
-- Add new task records (Title + Status)
+- Add new task records (Task name + Status)
 - View stored task records
-- Refresh to fetch latest data from backend
+- Click **Refresh** to fetch latest data from the backend
+
+When the application first loads, the frontend UI is empty with no tasks listed. The input fields accept a task name and status, and the **Add Task** button submits the data to the backend API:
 
 ![ ](images/Frontend_UI.png)
 
@@ -163,48 +165,58 @@ The **Task Manager** interface allows users to:
 Steps:
 
 1. Open `http://localhost:8080`
-2. Enter **Task name** (e.g. `assignment`) and **Status** (e.g. `pending`) in the input fields
-3. Click **Add Task**
-4. The request is sent to the backend API
-5. The backend stores the data in the PostgreSQL database
+2. Enter **Task name** (e.g. `assignment`) in the first input field
+3. Enter **Status** (e.g. `pending`) in the second input field
+4. Click **Add Task** — the request is sent to the backend API
+5. The backend stores the task in the PostgreSQL database
+6. Click **Refresh** to retrieve and display all tasks from the database
 
----
-
-## Volume Persistence Test
-
-Check volumes:
-
-```bash
-docker volume ls
-```
-
-![ ](images/vol.png)
-
----
-
-Enter data through frontend (task: `assignment - pending`):
+The task `assignment - pending` now appears in the task list, confirming the full frontend → backend → database pipeline is working correctly:
 
 ![ ](images/BeforeDown.png)
 
 ---
 
-Stop containers:
+## Volume Persistence Test
+
+Docker volumes ensure that data stored in the PostgreSQL container **survives container restarts**. The volume `assignment_postgres_data` is created automatically by Docker Compose and is mounted to the PostgreSQL container to persist all database data.
+
+### Step 1 – Check that the volume exists
+
+```bash
+docker volume ls
+```
+
+The volume `assignment_postgres_data` is listed, confirming it was created by Docker Compose for the PostgreSQL container:
+
+![ ](images/vol.png)
+
+---
+
+### Step 2 – Add data before stopping containers
+
+A task (`assignment - pending`) was added through the frontend and confirmed to be stored in the database:
+
+![ ](images/BeforeDown.png)
+
+---
+
+### Step 3 – Stop and restart the containers
 
 ```bash
 docker compose down
-```
-
-Restart:
-
-```bash
 docker compose up -d
 ```
+
+`docker compose down` removes all containers and the network — but **does NOT delete named volumes**, so the PostgreSQL data is preserved. On `docker compose up -d`, the containers are recreated and the same volume is re-attached:
 
 ![ ](images/down.png)
 
 ---
 
-Verify previously inserted data still exists after restart:
+### Step 4 – Verify data is still present after restart
+
+After restarting, the frontend still shows `assignment - pending`, confirming that the data was persisted in the volume and was not lost when the containers were removed:
 
 ![ ](images/AfterDown.png)
 
@@ -257,9 +269,9 @@ Successfully implemented:
 - ✅ Built 3 images: `assignment-frontend`, `assignment-backend`, `assignment-database`
 - ✅ All containers running via `docker compose up -d`
 - ✅ Task Manager accessible at `http://localhost:8080`
-- ✅ Task data persisted after `docker compose down` and restart
+- ✅ Task data persisted after `docker compose down` and restart via named volume
 - ✅ IPVLAN network `mynet` created with subnet `172.24.0.0/16`
-- ✅ Image size comparison: Alpine (16MB) vs standard nginx (240MB)
+- ✅ Image size comparison: frontend 92.5MB, backend 187MB, database 392MB
 
 ---
 
