@@ -1,39 +1,58 @@
-## Sap Id : 500126338
-## Name : Dev Aswani
-## Batch 1 (ccvt)
-# Docker & Containerization
+# Containerization and DevOps 
 
-##  Theory
-[Open Theory](Theory/README.md)
-
+**SAP ID:** 500126338
+**Name:** Dev Aswani
 
 ---
 
-##  Assignment-1
-[Open Assignment-1](Assignment-1/Readme.md)
+## About This Repository
+
+This repository contains all lab experiments , theory classes and assignments for the **Containerization and DevOps** course. Each experiment covers core Docker concepts with hands-on implementations and screenshots demonstrating real terminal outputs.
 
 ---
 
-##  Lab Experiments
+## Repository Structure
 
-### Experiment 1
-[Open Experiment 1](Lab/Exp1.md)
+```
+Containerization/
+├── Lab/
+│   ├── Exp1/       - Docker Basics & Installation
+│   ├── Exp2/       - Docker Images & Containers
+│   ├── Exp3a/      - Dockerfile Fundamentals
+│   ├── Exp3b/      - Multi-stage Builds
+│   ├── Exp4/       - Docker Compose
+│   ├── Exp5/       - Volumes, Environment Variables, Monitoring & Networks
+│   ├── Exp6/       - Advanced Docker Concepts
+│   └── Screenshots/ - All lab screenshots organized by experiment
+├── Assignment-1/   - Course Assignment
+└── Theory/         - Theory notes and documentation
+```
 
-### Experiment 2
-[Open Experiment 2](Lab/Exp2.md)
+---
 
-### Experiment 3a
-[Open Experiment 3a](Lab/Exp3a.md)
+## Lab Experiments Overview
 
-### Experiment 3b
-[Open Experiment 3b](Lab/Exp3b.md)
+| Experiment | Topic |
+|---|---|
+| Exp1 | Docker Basics & Installation |
+| Exp2 | Docker Images & Containers |
+| Exp3a | Dockerfile Fundamentals |
+| Exp3b | Multi-stage Builds |
+| Exp4 | Docker Compose |
+| Exp5 | Volumes, Env Variables, Monitoring & Networks |
+| Exp6 | Advanced Docker Concepts |
 
-### Experiment 4
-[Open Experiment 4](Lab/Exp4.md)
+---
 
-### Experiment 5
-[Open Experiment 5](Lab/Exp5.md)
+## Key Concepts Covered
 
+- **Docker Volumes** — Persistent data storage across containers
+- **Environment Variables** — Dynamic container configuration
+- **Docker Monitoring** — Stats, logs, inspect and events
+- **Docker Networks** — Bridge, host, none and overlay networks
+- **Docker Compose** — Multi-container application orchestration
+- **Dockerfiles** — Building custom images
 
-### Experiment 6
-[Open Experiment 6](Lab/Exp6.md)
+---
+
+> Course: Containerization and DevOps | Student: Dev Aswani | SAP ID: 500126338
