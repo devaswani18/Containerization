@@ -1,0 +1,154 @@
+# Docker & Containerization – Theory
+
+## Before 27th january
+![27Jan1](Screenshots/a.png)
+![27Jan1](Screenshots/b.jpeg)
+![27Jan1](Screenshots/c.jpeg)
+
+## 27th and 28th January
+
+![27Jan1](Screenshots/27jan1.png)
+![27Jan2](Screenshots/27jan2.png)
+![27Jan2](Screenshots/27jan3.png)
+![27Jan2](Screenshots/27jan4.png)
+![27Jan2](Screenshots/27jan5.png)
+![27Jan2](Screenshots/27jan6.png)
+
+
+# 29th january
+- practiced Markdown syntax for documentation using online tutorial.
+- created headings, subheadings, bold and italic text.
+- created ordered and unordered lists.
+- inserted links and images using markdown format.
+- practiced writing code blocks and inline code.
+- learned how to structure README files properly.
+
+Reference:
+https://www.markdowntutorial.com/
+
+# 30th january
+
+![27Jan1](Screenshots/e.png)
+![27Jan2](Screenshots/d.png)
+![27Jan2](Screenshots/f.png)
+![27Jan2](Screenshots/g.png)
+![27Jan2](Screenshots/13.png)
+![27Jan2](Screenshots/14.png)
+![27Jan2](Screenshots/15.png)
+
+# 3rd february
+
+![27Jan1](Screenshots/16.png)
+![27Jan2](Screenshots/17.png)
+![27Jan1](Screenshots/18.png)
+![27Jan2](Screenshots/18a.png)
+![27Jan2](Screenshots/18b.png)
+![27Jan2](Screenshots/18c.png)
+![27Jan2](Screenshots/18d.png)
+![27Jan2](Screenshots/18e.png)
+![27Jan2](Screenshots/18f.png)
+![27Jan2](Screenshots/18g.png)
+
+
+# 4th february
+
+![27Jan1](Screenshots/19a.png)
+![27Jan2](Screenshots/19b.png)
+![27Jan1](Screenshots/19c.png)
+
+# 5th february
+
+![27Jan1](Screenshots/20a.png)
+![27Jan2](Screenshots/20b.png)
+![27Jan1](Screenshots/20c.png)
+![27Jan2](Screenshots/20d.png)
+![27Jan2](Screenshots/20e.png)
+
+# 6th february
+
+![27Jan1](Screenshots/21a.png)
+![27Jan2](Screenshots/21b.png)
+![27Jan1](Screenshots/21c.png)
+![27Jan2](Screenshots/21d.png)
+![27Jan2](Screenshots/21e.png)
+![27Jan2](Screenshots/21f.png)
+![27Jan2](Screenshots/21g.png)
+
+# 10th february
+
+![27Jan1](Screenshots/22a.png)
+![27Jan2](Screenshots/22b.png)
+![27Jan1](Screenshots/22c.png)
+![27Jan2](Screenshots/22d.png)
+![27Jan2](Screenshots/22e.png)
+
+# 11th february
+
+![27Jan1](Screenshots/23a.png)
+![27Jan2](Screenshots/23b.png)
+
+# 12th february
+
+![27Jan1](Screenshots/23c.png)
+
+# 18th february
+
+![27Jan1](Screenshots/24a.png)
+![27Jan2](Screenshots/24b.png)
+![27Jan1](Screenshots/24c.png)
+![27Jan2](Screenshots/24d.png)
+![27Jan2](Screenshots/24e.png)
+![27Jan2](Screenshots/24f.png)
+![27Jan2](Screenshots/24g.png)
+
+
+# 20th february
+
+![27Jan1](Screenshots/24h.png)
+![27Jan2](Screenshots/24i.png)
+
+# 25th february
+
+![27Jan1](Screenshots/26a.png)
+![27Jan2](Screenshots/26b.png)
+![27Jan1](Screenshots/26c.png)
+![27Jan2](Screenshots/26d.png)
+![27Jan2](Screenshots/26e.png)
+
+# 26th february
+
+![27Jan1](Screenshots/26aa.png)
+![27Jan2](Screenshots/26bb.png)
+
+# 18th march(Kubernetes)
+
+![27Jan1](Screenshots/18ma.png)
+![27Jan2](Screenshots/18mb.png)
+![27Jan1](Screenshots/18mc.png)
+![27Jan2](Screenshots/18md.png)
+![27Jan2](Screenshots/18me.png)
+
+# 20th march(Portainer)
+
+![27Jan1](Screenshots/20ma.png)
+![27Jan2](Screenshots/20mb.png)
+![27Jan1](Screenshots/20mc.png)
+![27Jan2](Screenshots/20md.png)
+
+# 25th march(Servertask)
+
+![27Jan1](Screenshots/25a.png)
+![27Jan2](Screenshots/25b.png)
+![27Jan1](Screenshots/25c.png)
+![27Jan2](Screenshots/25d.png)
+![27Jan2](Screenshots/25e.png)
+![27Jan2](Screenshots/25f.png)
+![27Jan2](Screenshots/25g.png)
+![27Jan2](Screenshots/25h.png)
+![27Jan2](Screenshots/25i.png)
+![27Jan2](Screenshots/25j.png)
+
+
+
+---
+
