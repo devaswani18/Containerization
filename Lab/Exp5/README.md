@@ -22,7 +22,7 @@ cat message.txt
 # ERROR: File doesn't exist! Data was lost.
 ```
 
-![ ](../../Screenshots/Exp5/Screenshot%20(849).png)
+![ ](../Screenshots/Exp5/Screenshot%20(849).png)
 
 > **Solution: Docker Volumes**
 
@@ -43,7 +43,7 @@ docker volume ls
 docker inspect web1 | grep -A 5 Mounts
 ```
 
-![ ](../../Screenshots/Exp5/Screenshot%20(850).png)
+![ ](../Screenshots/Exp5/Screenshot%20(850).png)
 
 #### **2. Named Volumes**
 ```bash
@@ -61,7 +61,7 @@ docker volume ls
 docker volume inspect mydata
 ```
 
-![ ](../../Screenshots/Exp5/Screenshot%20(851).png)
+![ ](../Screenshots/Exp5/Screenshot%20(851).png)
 
 #### **3. Bind Mounts (Host Directory)**
 ```bash
@@ -79,7 +79,7 @@ docker exec web3 cat /app/data/host-file.txt
 # Shows: From Host
 ```
 
-![ ](../../Screenshots/Exp5/Screenshot%20(852).png)
+![ ](../Screenshots/Exp5/Screenshot%20(852).png)
 
 ---
 
@@ -107,7 +107,7 @@ docker run -d \
 # Data is preserved!
 ```
 
-![ ](../../Screenshots/Exp5/Screenshot%20(853).png)
+![ ](../Screenshots/Exp5/Screenshot%20(853).png)
 
 #### **Example 2: Web App with Configuration Files**
 ```bash
@@ -134,7 +134,7 @@ docker run -d \
 curl http://localhost:8080
 ```
 
-![ ](../../Screenshots/Exp5/Screenshot%20(854).png)
+![ ](../Screenshots/Exp5/Screenshot%20(854).png)
 
 ---
 
@@ -159,7 +159,7 @@ docker volume rm volume-name
 docker cp local-file.txt container-name:/path/in/volume
 ```
 
-![ ](../../Screenshots/Exp5/Screenshot%20(855).png)
+![ ](../Screenshots/Exp5/Screenshot%20(855).png)
 
 ---
 
@@ -185,7 +185,7 @@ docker run -d \
   my-app
 ```
 
-![ ](../../Screenshots/Exp5/Screenshot%20(856).png)
+![ ](../Screenshots/Exp5/Screenshot%20(856).png)
 
 #### **Method 2: Using --env-file**
 ```bash
@@ -201,7 +201,7 @@ docker run -d \
   my-app
 ```
 
-![ ](../../Screenshots/Exp5/Screenshot%20(857).png)
+![ ](../Screenshots/Exp5/Screenshot%20(857).png)
 
 #### **Method 3: In Dockerfile**
 ```dockerfile
@@ -265,7 +265,7 @@ EXPOSE 5000
 CMD ["python", "app.py"]
 ```
 
-![ ](../../Screenshots/Exp5/Screenshot%20(858).png)
+![ ](../Screenshots/Exp5/Screenshot%20(858).png)
 
 ---
 
@@ -288,7 +288,7 @@ docker exec flask-app printenv DATABASE_HOST
 curl http://localhost:5001/config
 ```
 
-![ ](../../Screenshots/Exp5/Screenshot%20(859).png)
+![ ](../Screenshots/Exp5/Screenshot%20(859).png)
 
 ---
 
@@ -308,7 +308,7 @@ docker stats --no-stream
 docker stats --format "table {{.Name}}\t{{.CPUPerc}}\t{{.MemUsage}}\t{{.NetIO}}"
 ```
 
-![ ](../../Screenshots/Exp5/Screenshot%20(860).png)
+![ ](../Screenshots/Exp5/Screenshot%20(860).png)
 
 #### **Useful Format Options:**
 ```bash
@@ -319,7 +319,7 @@ docker stats --format json --no-stream
 docker stats --no-stream --no-trunc
 ```
 
-![ ](../../Screenshots/Exp5/Screenshot%20(861).png)
+![ ](../Screenshots/Exp5/Screenshot%20(861).png)
 
 ---
 
@@ -335,9 +335,9 @@ docker top monitor-test -ef
 ps aux | grep docker
 ```
 
-![ ](../../Screenshots/Exp5/Screenshot%20(862).png)
+![ ](../Screenshots/Exp5/Screenshot%20(862).png)
 
-![ ](../../Screenshots/Exp5/Screenshot%20(863).png)
+![ ](../Screenshots/Exp5/Screenshot%20(863).png)
 
 ---
 
@@ -362,11 +362,11 @@ docker logs --since 5m monitor-test
 docker logs -f --tail 50 -t monitor-test
 ```
 
-![ ](../../Screenshots/Exp5/Screenshot%20(864).png)
+![ ](../Screenshots/Exp5/Screenshot%20(864).png)
 
-![ ](../../Screenshots/Exp5/Screenshot%20(865).png)
+![ ](../Screenshots/Exp5/Screenshot%20(865).png)
 
-![ ](../../Screenshots/Exp5/Screenshot%20(866).png)
+![ ](../Screenshots/Exp5/Screenshot%20(866).png)
 
 ---
 
@@ -384,7 +384,7 @@ docker inspect --format='{{.HostConfig.Memory}}' monitor-test
 docker inspect --format='{{.HostConfig.NanoCpus}}' monitor-test
 ```
 
-![ ](../../Screenshots/Exp5/Screenshot%20(867).png)
+![ ](../Screenshots/Exp5/Screenshot%20(867).png)
 
 ---
 
@@ -398,7 +398,7 @@ docker events --filter 'type=container'
 docker events --filter 'event=start'
 ```
 
-![ ](../../Screenshots/Exp5/Screenshot%20(868).png)
+![ ](../Screenshots/Exp5/Screenshot%20(868).png)
 
 ---
 
@@ -427,7 +427,7 @@ echo "4. System Info:"
 docker system df
 ```
 
-![ ](../../Screenshots/Exp5/Screenshot%20(869).png)
+![ ](../Screenshots/Exp5/Screenshot%20(869).png)
 
 ---
 
@@ -458,7 +458,7 @@ docker run -d --name web2 --network my-network nginx
 docker exec web1 curl http://web2
 ```
 
-![ ](../../Screenshots/Exp5/Screenshot%20(870).png)
+![ ](../Screenshots/Exp5/Screenshot%20(870).png)
 
 #### **2. Host Network**
 ```bash
@@ -469,7 +469,7 @@ docker run -d --name host-app --network host nginx
 curl http://localhost
 ```
 
-![ ](../../Screenshots/Exp5/Screenshot%20(871).png)
+![ ](../Screenshots/Exp5/Screenshot%20(871).png)
 
 #### **3. None Network**
 ```bash
@@ -481,7 +481,7 @@ docker exec isolated-app ifconfig
 # Only loopback interface
 ```
 
-![ ](../../Screenshots/Exp5/Screenshot%20(872).png)
+![ ](../Screenshots/Exp5/Screenshot%20(872).png)
 
 ---
 
@@ -503,7 +503,7 @@ docker network rm app-network
 docker network prune
 ```
 
-![ ](../../Screenshots/Exp5/Screenshot%20(873).png)
+![ ](../Screenshots/Exp5/Screenshot%20(873).png)
 
 ---
 
@@ -532,7 +532,7 @@ docker run -d \
   node-app
 ```
 
-![ ](../../Screenshots/Exp5/Screenshot%20(874).png)
+![ ](../Screenshots/Exp5/Screenshot%20(874).png)
 
 ---
 
@@ -545,7 +545,7 @@ docker network inspect bridge
 docker inspect --format='{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' container-name
 ```
 
-![ ](../../Screenshots/Exp5/Screenshot%20(875).png)
+![ ](../Screenshots/Exp5/Screenshot%20(875).png)
 
 ---
 
@@ -565,7 +565,7 @@ docker run -d -p 8082:80 -p 8443:443 --name app3 nginx
 docker run -d -p 127.0.0.1:8085:80 --name app4 nginx
 ```
 
-![ ](../../Screenshots/Exp5/Screenshot%20(876).png)
+![ ](../Screenshots/Exp5/Screenshot%20(876).png)
 
 ---
 
@@ -611,7 +611,7 @@ docker run -d \
   flask-app:latest
 ```
 
-![ ](../../Screenshots/Exp5/Screenshot%20(877).png)
+![ ](../Screenshots/Exp5/Screenshot%20(877).png)
 
 ### **Monitoring Commands:**
 ```bash
@@ -622,7 +622,7 @@ docker ps
 docker stats postgres redis flask-app
 ```
 
-![ ](../../Screenshots/Exp5/Screenshot%20(878).png)
+![ ](../Screenshots/Exp5/Screenshot%20(878).png)
 
 ---
 
