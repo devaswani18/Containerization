@@ -10,31 +10,31 @@ To perform Docker installation, pull images, run containers, and manage the cont
 
 ## Step 1: Pull Docker Image  
 
-![Step1](Screenshots/Exp2/21.png)
+![Step1](../Screenshots/Exp2/21.png)
 
 ---
 
 ## Step 2: Run Container with Port Mapping  
 
-![Step2](Screenshots/Exp2/22.png)
+![Step2](../Screenshots/Exp2/22.png)
 
 ---
 
 ## Step 3: Verify Running Containers  
 
-![Step3](Screenshots/Exp2/23.png)
+![Step3](../Screenshots/Exp2/23.png)
 
 ---
 
 ## Step 4: Stop and Remove Container  
 
-![Step4](Screenshots/Exp2/24.png)
+![Step4](../Screenshots/Exp2/24.png)
 
 ---
 
 ## Step 6: Remove Docker Image  
 
-![Step5](Screenshots/Exp2/25.png)
+![Step5](../Screenshots/Exp2/25.png)
 
 ---
 
