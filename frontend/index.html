@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Task Manager</title>
+
+<style>
+
+body{
+font-family: Arial, sans-serif;
+background:#f4f6f9;
+padding:40px;
+}
+
+h1{
+color:#333;
+}
+
+input{
+padding:8px;
+margin:5px;
+}
+
+button{
+padding:8px 12px;
+margin:5px;
+cursor:pointer;
+}
+
+ul{
+margin-top:20px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>Task Manager</h1>
+
+<input id="title" placeholder="Task title">
+<input id="status" placeholder="Task status">
+
+<button onclick="addTask()">Add Task</button>
+
+<h2>Tasks</h2>
+
+<button onclick="loadTasks()">Refresh</button>
+
+<ul id="tasks"></ul>
+
+<script>
+
+const API = "http://localhost:5001"
+
+async function addTask(){
+
+ const title=document.getElementById("title").value
+ const status=document.getElementById("status").value
+
+ await fetch(API+"/tasks",{
+
+  method:"POST",
+
+  headers:{
+  "Content-Type":"application/json"
+  },
+
+  body:JSON.stringify({
+  title:title,
+  status:status
+  })
+
+ })
+
+ loadTasks()
+
+}
+
+async function loadTasks(){
+
+ const res=await fetch(API+"/tasks")
+
+ const data=await res.json()
+
+ const list=document.getElementById("tasks")
+
+ list.innerHTML=""
+
+ data.forEach(t=>{
+
+  const li=document.createElement("li")
+
+  li.innerText=t.title+" - "+t.status
+
+  list.appendChild(li)
+
+ })
+
+}
+
+</script>
+
+</body>
+
+</html>

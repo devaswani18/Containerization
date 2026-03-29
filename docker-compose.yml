@@ -1,0 +1,38 @@
+services:
+
+  database:
+    build: ./database
+    container_name: postgres_db
+    restart: always
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: taskdb
+      POSTGRES_USER: appuser
+      POSTGRES_PASSWORD: securepassword
+
+  backend:
+    build: ./backend
+    container_name: backend_api
+    restart: always
+    depends_on:
+      - database
+    ports:
+      - "5001:5000"
+    environment:
+      DB_HOST: database
+      DB_USER: appuser
+      DB_PASSWORD: securepassword
+      DB_NAME: taskdb
+
+  frontend:
+    build: ./frontend
+    container_name: frontend_ui
+    restart: always
+    ports:
+      - "8080:80"
+    depends_on:
+      - backend
+
+volumes:
+  postgres_data:
