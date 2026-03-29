@@ -1,110 +1,99 @@
-# Containerized Web Application with PostgreSQL using Docker Compose and IPVLAN
+# Containerized Task Manager with PostgreSQL using Docker Compose and IPVLAN
 
 ## Overview
 
-This project demonstrates a **containerized full-stack web application** using Docker.
-It includes a **frontend, backend API, and PostgreSQL database**, orchestrated with **Docker Compose** and connected through an **IPVLAN network with static IP addresses**.
+This project demonstrates a **containerized full-stack Task Manager application** using Docker.
+It includes a **frontend (Nginx), backend API (Node.js + Express), and PostgreSQL database**, orchestrated with **Docker Compose** and connected through an **IPVLAN network**.
 
 The project also demonstrates **Docker image optimization techniques**, comparing:
 
-* Optimized build (Alpine + Multi-stage)
-* Non-optimized build (Standard images)
-
-This project fulfills the requirements of the **Containerization and DevOps assignment**.
+- Optimized build (Alpine + Multi-stage)
+- Non-optimized build (Standard images)
 
 ---
 
-# Architecture
+## Architecture
 
 ```
 Client Browser
       │
       ▼
-Frontend Container (Nginx)
-172.24.10.30
+Frontend Container (Nginx) — frontend_ui
+localhost:8080
       │
       ▼
-Backend API Container (Node.js + Express)
-172.24.10.20
+Backend API Container (Node.js + Express) — backend_api
       │
       ▼
-PostgreSQL Container
-172.24.10.10
+PostgreSQL Container — postgres_db
 ```
 
-All services communicate through a custom **IPVLAN network**.
+All services communicate through a custom **IPVLAN network (`mynet`)**.
 
 ---
 
-# Project Structure
+## Project Structure
 
 ```
-containerized-webapp
+assignment/
 │
-├── backend
+├── backend/
 │   ├── Dockerfile
 │   ├── server.js
 │   ├── package.json
 │   └── .dockerignore
 │
-├── database
+├── database/
 │   ├── Dockerfile
 │   └── init.sql
 │
-├── frontend
+├── frontend/
 │   ├── Dockerfile
 │   └── index.html
 │
-├── docker-compose.yml
-├── docker-compose-unoptimized.yml
-├── README.md
-└── DELIVERABLES.md
+└── docker-compose.yml
 ```
 
 ---
 
-# Technology Stack
+## Technology Stack
 
-| Component        | Technology        |
-| ---------------- | ----------------- |
-| Frontend         | HTML + Nginx      |
-| Backend          | Node.js + Express |
-| Database         | PostgreSQL        |
-| Containerization | Docker            |
-| Orchestration    | Docker Compose    |
-| Networking       | IPVLAN            |
+| Component | Technology |
+|---|---|
+| Frontend | HTML + Nginx |
+| Backend | Node.js + Express |
+| Database | PostgreSQL |
+| Containerization | Docker |
+| Orchestration | Docker Compose |
+| Networking | IPVLAN |
 
 ---
 
-# Docker Image Optimization
-
-The project demonstrates Docker optimization techniques:
+## Docker Image Optimization
 
 ### Optimized Build
-
-* Alpine base images
-* Multi-stage builds
-* Non-root user
-* Minimal layers
+- Alpine base images
+- Multi-stage builds
+- Non-root user
+- Minimal layers
 
 ### Non-Optimized Build
-
-* Standard images
-* Single stage builds
-* Larger image sizes
+- Standard images
+- Single stage builds
+- Larger image sizes
 
 ---
 
-# Create Network (Required)
+## Create Network (Required)
 
 Create IPVLAN network manually:
 
 ```bash
 docker network create -d ipvlan \
---subnet=172.24.0.0/16 \
---gateway=172.24.0.1 \
--o parent=eth0 \
-mynet
+  --subnet=172.24.0.0/16 \
+  --gateway=172.24.0.1 \
+  -o parent=eth0 \
+  mynet
 ```
 
 Verify:
@@ -112,175 +101,168 @@ Verify:
 ```bash
 docker network inspect mynet
 ```
-![net](images/net.png)
+
+![ ](images/net.png)
 
 ---
 
-# Build and Run the Application
+## Build and Run the Application
 
 ### Build Containers
 
-```
+```bash
 docker compose build
 ```
 
 ### Start Containers
 
-```
+```bash
 docker compose up -d
 ```
 
 ### Check Running Containers
 
-```
+```bash
 docker ps
 ```
-![dockerPs](images/dockerPs.png)
+
+![ ](images/dockerPs.png)
 
 ---
 
-# Container IP Addresses
+## Container Details
 
-| Service    | IP           |
-| ---------- | ------------ |
-| PostgreSQL | 172.24.10.10 |
-| Backend    | 172.24.10.20 |
-| Frontend   | 172.24.10.30 |
+| Service | Container Name | Port |
+|---|---|---|
+| Frontend | frontend_ui | 8080:80 |
+| Backend | backend_api | — |
+| Database | postgres_db | — |
 
 ---
 
-# Testing API using curl
-
-# Application Usage
-
-The application can be accessed through the frontend interface.
+## Application Usage
 
 Open the frontend in a browser:
 
-http://localhost:8080
-
-The interface allows users to:
-
-• Add new user records  
-• View stored user records  
-• Check backend health status  
-
----
-
-# Adding Data Through Frontend
-
-Steps:
-
-1. Open the frontend page.
-2. Enter **Name** and **Email** in the input fields.
-3. Click **Add User**.
-4. The request is sent to the backend API.
-5. The backend stores the data in the PostgreSQL database.
-
----
-
-# Fetching Stored Records
-
-Steps:
-
-1. Click the **Refresh** button.
-2. The frontend sends a request to the backend.
-3. Backend retrieves records from PostgreSQL.
-4. Records are displayed on the page.
-
----
-
-# Volume Persistence Test
-
-Check volume:
-
 ```
+http://localhost:8080
+```
+
+The **Task Manager** interface allows users to:
+
+- Add new task records (Title + Status)
+- View stored task records
+- Refresh to fetch latest data from backend
+
+![ ](images/Frontend_UI.png)
+
+---
+
+## Adding Data Through Frontend
+
+Steps:
+
+1. Open `http://localhost:8080`
+2. Enter **Task name** (e.g. `assignment`) and **Status** (e.g. `pending`) in the input fields
+3. Click **Add Task**
+4. The request is sent to the backend API
+5. The backend stores the data in the PostgreSQL database
+
+---
+
+## Volume Persistence Test
+
+Check volumes:
+
+```bash
 docker volume ls
 ```
-![vol](images/vol.png)
 
+![ ](images/vol.png)
 
-Enter data to volume through frontend:
+---
 
-![BeforeDown](images/BeforeDown.png)
+Enter data through frontend (task: `assignment - pending`):
+
+![ ](images/BeforeDown.png)
+
+---
 
 Stop containers:
 
-```
+```bash
 docker compose down
 ```
 
 Restart:
 
-```
+```bash
 docker compose up -d
 ```
-![down](images/down.png)
 
-Verify previously inserted data still exists.
-
-![AfterDown](images/AfterDown.png)
+![ ](images/down.png)
 
 ---
 
-# Image Size Comparison
+Verify previously inserted data still exists after restart:
 
-Check image sizes:
+![ ](images/AfterDown.png)
 
-Create one stack with Alpine and multi-stage dockerfile named as opimizedsize_backend and other with no Alpine and single-stage named as normal_backend.
+---
 
-```
+## Image Size Comparison
+
+```bash
 docker images
 ```
 
-![size](images/size.png)
+![ ](images/size.png)
 
-We can see that opimizedsize_backend has less size than normal_backend.
+| Repository | Tag | Size |
+|---|---|---|
+| assignment-frontend | latest | 92.5MB |
+| assignment-backend | latest | 187MB |
+| assignment-database | latest | 392MB |
 
 ---
 
-# macvlan vs ipvlan Comparison
+## macvlan vs ipvlan Comparison
 
-| Feature            | Macvlan               | Ipvlan                   |
-| ------------------ | --------------------- | ------------------------ |
-| MAC Address        | Unique per container  | Shared                   |
-| Host communication | Not allowed           | Allowed                  |
-| Performance        | Good                  | Better                   |
-| Use case           | LAN device simulation | Virtualized environments |
+| Feature | Macvlan | Ipvlan |
+|---|---|---|
+| MAC Address | Unique per container | Shared |
+| Host communication | Not allowed | Allowed |
+| Performance | Good | Better |
+| Use case | LAN device simulation | Virtualized environments |
 
 IPVLAN was selected due to compatibility with virtualized environments like **WSL2**.
 
 ---
 
-# Screenshots
+## Key Concepts Demonstrated
 
-## Network Inspect
-
-![Network Inspect](images/net.png)
-
-## Running Containers
-
-![Docker PS](images/dockerPs.png)
-
-## Frontend UI
-
-![Frontend UI](images/web.png)
-
+- Docker multi-stage builds
+- Container networking with IPVLAN
+- Static IP assignment
+- Docker Compose orchestration
+- Persistent storage using volumes
+- Image optimization techniques (Alpine vs Standard)
 
 ---
 
-# Key Concepts Demonstrated
+## Result
 
-* Docker multi-stage builds
-* Container networking with IPVLAN
-* Static IP assignment
-* Docker Compose orchestration
-* Persistent storage using volumes
-* Image optimization techniques
+Successfully implemented:
+
+- ✅ Built 3 images: `assignment-frontend`, `assignment-backend`, `assignment-database`
+- ✅ All containers running via `docker compose up -d`
+- ✅ Task Manager accessible at `http://localhost:8080`
+- ✅ Task data persisted after `docker compose down` and restart
+- ✅ IPVLAN network `mynet` created with subnet `172.24.0.0/16`
+- ✅ Image size comparison: Alpine (16MB) vs standard nginx (240MB)
 
 ---
 
-# Author
-
+## Author
 Dev Aswani
 B.Tech – Containerization and DevOps
