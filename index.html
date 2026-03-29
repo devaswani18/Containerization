@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +7,11 @@
     <title>Dev Aswani | Docker & Containerization</title>
 
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
         body {
             font-family: 'Segoe UI', sans-serif;
@@ -16,14 +21,20 @@
 
         header {
             text-align: center;
-            padding: 40px;
+            padding: 40px 20px;
             background: #161b22;
             border-bottom: 1px solid #30363d;
         }
 
-        header h1 { font-size: 36px; }
+        header h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
 
-        header p { color: #8b949e; }
+        header p {
+            color: #8b949e;
+            margin: 4px;
+        }
 
         .container {
             max-width: 1000px;
@@ -49,18 +60,21 @@
             padding: 20px;
             border-radius: 12px;
             border: 1px solid #30363d;
-            transition: 0.3s;
+            transition: all 0.3s ease;
+            cursor: pointer;
         }
 
         .card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-5px) scale(1.02);
             border-color: #58a6ff;
+            box-shadow: 0 0 15px rgba(88, 166, 255, 0.3);
         }
 
         .card a {
             text-decoration: none;
             color: #58a6ff;
-            font-weight: bold;
+            font-size: 18px;
+            font-weight: 600;
         }
 
         footer {
@@ -68,6 +82,7 @@
             padding: 20px;
             color: #8b949e;
             border-top: 1px solid #30363d;
+            margin-top: 30px;
         }
     </style>
 </head>
@@ -77,11 +92,13 @@
 <header>
     <h1>Dev Aswani</h1>
     <p>SAP ID: 500126338</p>
-    <p>Docker & Containerization</p>
+    <p>Batch 1 (CCVT)</p>
+    <p><strong>Docker & Containerization</strong></p>
 </header>
 
 <div class="container">
 
+    <!-- THEORY -->
     <div class="section-title">📘 Theory</div>
     <div class="grid">
         <div class="card">
@@ -89,6 +106,7 @@
         </div>
     </div>
 
+    <!-- ASSIGNMENT -->
     <div class="section-title">📄 Assignment</div>
     <div class="grid">
         <div class="card">
@@ -96,22 +114,24 @@
         </div>
     </div>
 
+    <!-- LAB -->
     <div class="section-title">🧪 Lab Experiments</div>
     <div class="grid">
-        <div class="card"><a href="Lab/Exp1.md" target="_blank">Experiment 1</a></div>
-        <div class="card"><a href="https://github.com/devaswani18/Containerization/blob/main/Lab/Exp2.md" target="_blank">Experiment 2</a></div>
-        <div class="card"><a href="https://github.com/devaswani18/Containerization/blob/main/Lab/Exp3a.md" target="_blank">Experiment 3a</a></div>
-        <div class="card"><a href="https://github.com/devaswani18/Containerization/blob/main/Lab/Exp3b.md" target="_blank">Experiment 3b</a></div>
-        <div class="card"><a href="https://github.com/devaswani18/Containerization/blob/main/Lab/Exp4.md" target="_blank">Experiment 4</a></div>
-        <div class="card"><a href="https://github.com/devaswani18/Containerization/blob/main/Lab/Exp5.md" target="_blank">Experiment 5</a></div>
-        <div class="card"><a href="https://github.com/devaswani18/Containerization/blob/main/Lab/Exp6.md" target="_blank">Experiment 6</a></div>
+        <div class="card"><a href="Lab/Exp1">Experiment 1</a></div>
+        <div class="card"><a href="Lab/Exp2">Experiment 2</a></div>
+        <div class="card"><a href="Lab/Exp3a">Experiment 3a</a></div>
+        <div class="card"><a href="Lab/Exp3b">Experiment 3b</a></div>
+        <div class="card"><a href="Lab/Exp4">Experiment 4</a></div>
+        <div class="card"><a href="Lab/Exp5">Experiment 5</a></div>
+        <div class="card"><a href="Lab/Exp6">Experiment 6</a></div>
     </div>
 
 </div>
 
 <footer>
-    © 2026 Dev Aswani
+    © 2026 Dev Aswani | GitHub Pages Dashboard
 </footer>
 
 </body>
 </html>
+```
