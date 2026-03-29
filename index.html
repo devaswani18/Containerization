@@ -2,170 +2,119 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dev Aswani | Cyber Dashboard</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dev Aswani | Docker & Containerization</title>
 
-<style>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-/* ================= GLOBAL ================= */
-:root {
-    --bg: #0f2027;
-    --bg2: #203a43;
-    --bg3: #2c5364;
-    --text: #ffffff;
-    --accent: #00f5ff;
-    --card: rgba(255,255,255,0.08);
-}
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #0d1117, #161b22);
+            color: #e6edf3;
+        }
 
-.light-mode {
-    --bg: #ffffff;
-    --bg2: #e3f2fd;
-    --bg3: #bbdefb;
-    --text: #111;
-    --accent: #0077ff;
-    --card: rgba(0,0,0,0.05);
-}
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            background: #161b22;
+            border-bottom: 1px solid #30363d;
+        }
 
-body {
-    margin: 0;
-    font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, var(--bg), var(--bg2), var(--bg3));
-    color: var(--text);
-    min-height: 100vh;
-}
+        header h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
 
-/* ================= HEADER ================= */
-header {
-    text-align: center;
-    padding: 40px 20px;
-}
+        header p {
+            color: #8b949e;
+            margin: 4px;
+        }
 
-header h1 {
-    font-size: 40px;
-    background: linear-gradient(90deg, #00f5ff, #00ff9d);
-    -webkit-background-clip: text;
-    color: transparent;
-}
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            padding: 30px;
+        }
 
-header p {
-    opacity: 0.8;
-}
+        .section-title {
+            font-size: 24px;
+            margin: 30px 0 15px;
+            border-left: 4px solid #58a6ff;
+            padding-left: 10px;
+        }
 
-/* ================= BUTTON ================= */
-.toggle {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    background: var(--accent);
-    border: none;
-    padding: 10px 18px;
-    border-radius: 25px;
-    cursor: pointer;
-    font-weight: bold;
-    box-shadow: 0 0 10px var(--accent);
-}
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
 
-/* ================= SECTION ================= */
-.container {
-    max-width: 1100px;
-    margin: auto;
-    padding: 20px;
-}
+        .card {
+            background: #161b22;
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid #30363d;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
 
-.section-title {
-    font-size: 24px;
-    margin: 40px 0 15px;
-    border-left: 5px solid var(--accent);
-    padding-left: 10px;
-}
+        .card:hover {
+            transform: translateY(-5px) scale(1.02);
+            border-color: #58a6ff;
+            box-shadow: 0 0 15px rgba(88, 166, 255, 0.3);
+        }
 
-/* ================= GRID ================= */
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-}
+        .card a {
+            text-decoration: none;
+            color: #58a6ff;
+            font-size: 18px;
+            font-weight: 600;
+        }
 
-/* ================= CARD ================= */
-.card {
-    backdrop-filter: blur(15px);
-    background: var(--card);
-    border-radius: 15px;
-    padding: 25px;
-    text-align: center;
-    border: 1px solid rgba(255,255,255,0.1);
-    transition: 0.4s;
-    position: relative;
-    overflow: hidden;
-}
-
-/* glowing border animation */
-.card::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border-radius: 15px;
-    padding: 2px;
-    background: linear-gradient(45deg, #00f5ff, #00ff9d, #00f5ff);
-    -webkit-mask: 
-        linear-gradient(#000 0 0) content-box, 
-        linear-gradient(#000 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-}
-
-.card:hover {
-    transform: translateY(-10px) scale(1.05);
-    box-shadow: 0 0 25px var(--accent);
-}
-
-/* ================= LINKS ================= */
-.card a {
-    text-decoration: none;
-    color: var(--text);
-    font-size: 18px;
-    font-weight: bold;
-}
-
-/* ================= FOOTER ================= */
-footer {
-    text-align: center;
-    margin-top: 50px;
-    opacity: 0.7;
-}
-
-/* ================= MOBILE ================= */
-@media(max-width: 600px) {
-    header h1 {
-        font-size: 28px;
-    }
-}
-
-</style>
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #8b949e;
+            border-top: 1px solid #30363d;
+            margin-top: 30px;
+        }
+    </style>
 </head>
 
 <body>
 
-<button class="toggle" onclick="toggleMode()">🌗 Theme</button>
-
 <header>
     <h1>Dev Aswani</h1>
-    <p>SAP ID: 500126338 | Docker & Containerization</p>
+    <p>SAP ID: 500126338</p>
+    <p>Batch 1 (CCVT)</p>
+    <p><strong>Docker & Containerization</strong></p>
 </header>
 
 <div class="container">
 
+    <!-- THEORY -->
     <div class="section-title">📘 Theory</div>
     <div class="grid">
-        <div class="card"><a href="Theory/">Open Theory</a></div>
+        <div class="card">
+            <a href="Theory/">Open Theory</a>
+        </div>
     </div>
 
+    <!-- ASSIGNMENT -->
     <div class="section-title">📄 Assignment</div>
     <div class="grid">
-        <div class="card"><a href="Assignment-1/">Open Assignment-1</a></div>
+        <div class="card">
+            <a href="Assignment-1/">Open Assignment-1</a>
+        </div>
     </div>
 
+    <!-- LAB -->
     <div class="section-title">🧪 Lab Experiments</div>
     <div class="grid">
         <div class="card"><a href="Lab/Exp1.md">Experiment 1</a></div>
@@ -180,14 +129,8 @@ footer {
 </div>
 
 <footer>
-    ⚡ Cyber UI Dashboard | Built by Dev Aswani
+    © 2026 Dev Aswani | GitHub Pages Dashboard
 </footer>
-
-<script>
-function toggleMode() {
-    document.body.classList.toggle("light-mode");
-}
-</script>
 
 </body>
 </html>
