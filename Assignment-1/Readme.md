@@ -156,7 +156,7 @@ The **Task Manager** interface allows users to:
 
 When the application first loads, the frontend UI is empty with no tasks listed. The input fields accept a task name and status, and the **Add Task** button submits the data to the backend API:
 
-![ ](images/Frontend_UI.png)
+![ ](images/ft.png)
 
 ---
 
