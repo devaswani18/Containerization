@@ -1,8 +1,9 @@
-# 🧪 Experiment 6  
+# 🧪 Experiment 6
 # Comparison of Docker Run vs Docker Compose | Multi-Stage Build | Networking
 
 ---
-# 🎯 Aim
+
+## 🎯 Aim
 
 To study and implement:
 
@@ -16,9 +17,9 @@ To study and implement:
 
 ---
 
-# 🧩 Part 1 – Running Nginx Using Docker Run
+## 🧩 Part 1 – Running Nginx Using Docker Run
 
-## 🔹 Command
+### 🔹 Command
 
 ```bash
 docker run -d \
@@ -30,42 +31,29 @@ docker run -d \
   nginx:alpine
 ```
 
-## 🔹 Verify Container
+### 🔹 Verify Container & Test Using Curl
 
 ```bash
 docker ps
+curl localhost:8080
 ```
 
 ![ ](../Screenshots/Exp6/28a.png)
-(Shows nginx container running on port 8080)
 
 ---
 
-## 🔹 Test Using Curl
-
-```bash
-curl localhost:8080
-```
-![ ](../Screenshots/Exp6/28b.png)
-(Shows 403 Forbidden response from nginx)
-
----
-
-## 🔹 Stop & Remove Container
+### 🔹 Stop & Remove Container
 
 ```bash
 docker stop my-nginx
 docker rm my-nginx
 ```
 
-![ ](../Screenshots/Exp6/28c.png)
-(Container stopped and removed successfully)
-
 ---
 
-# 🧩 Part 2 – Using Docker Compose
+## 🧩 Part 2 – Using Docker Compose
 
-## 🔹 docker-compose.yml
+### 🔹 docker-compose.yml
 
 ```yaml
 services:
@@ -76,42 +64,27 @@ services:
       - "8080:80"
 ```
 
-## 🔹 Run Compose
+### 🔹 Run, Verify & Stop Compose
 
 ```bash
 docker compose up -d
-```
-
-![ ](../Screenshots/Exp6/28d.png)
-(Shows container and network creation via compose)
-
----
-
-## 🔹 Stop Compose
-
-```bash
+docker compose ps
 docker compose down
 ```
 
-![ ](../Screenshots/Exp6/28e.png)
-(Container and network removed successfully)
+![ ](../Screenshots/Exp6/28b.png)
 
 ---
 
-# 🧩 Part 3 – WordPress + MySQL Using Docker Network
+## 🧩 Part 3 – WordPress + MySQL Using Docker Network
 
-## 🔹 Create Network
+### 🔹 Create Network
 
 ```bash
 docker network create wp-net
 ```
 
-![ ](../Screenshots/Exp6/28f.png) 
-(Network creation output)
-
----
-
-## 🔹 Run MySQL Container
+### 🔹 Run MySQL Container
 
 ```bash
 docker run -d \
@@ -122,9 +95,7 @@ docker run -d \
   mysql:5.7
 ```
 
----
-
-## 🔹 Run WordPress Container
+### 🔹 Run WordPress Container
 
 ```bash
 docker run -d \
@@ -136,19 +107,53 @@ docker run -d \
   wordpress:latest
 ```
 
-![ ](../Screenshots/Exp6/28g.png)  
-(Shows port conflict and resolution)
+```bash
+curl http://localhost:8090
+```
+
+![ ](../Screenshots/Exp6/28c.png)
 
 ---
 
-![ ](../Screenshots/Exp6/28h.png)
-(Shows WordPress running on http://localhost:8090)
+### 🔹 WordPress + MySQL via Docker Compose
+
+```bash
+docker compose up -d
+docker compose down -v
+```
+
+![ ](../Screenshots/Exp6/28d.png)
 
 ---
 
-# 🧩 Part 4 – Multi-Stage Dockerfile (Advanced Node App)
+## 🧩 Part 4 – Multi-Stage Dockerfile (Advanced Node App)
 
-## 🔹 Dockerfile
+### 🔹 Fixing Docker Credential Error & Pulling Image
+
+```bash
+rm -rf ~/.docker
+docker pull node:18-alpine
+docker compose up -d
+```
+
+![ ](../Screenshots/Exp6/28e.png)
+
+---
+
+### 🔹 Python + PostgreSQL Backend via Compose
+
+```bash
+docker compose up -d
+docker compose down -v
+docker compose down --remove-orphans
+docker compose up -d --build
+```
+
+![ ](../Screenshots/Exp6/28f.png)
+
+---
+
+### 🔹 Dockerfile (Multi-Stage)
 
 ```dockerfile
 # Stage 1 – Builder
@@ -173,49 +178,74 @@ EXPOSE 3000
 CMD ["node", "app.js"]
 ```
 
+### 🔹 Build and Run Using Compose
+
+```bash
+docker compose up -d --build
+docker compose ps
+docker images
+```
+
+![ ](../Screenshots/Exp6/28g.png)
+
 ---
 
-## 🔹 Build and Run Using Compose
+### 🔹 Build exp6-nodeapp & exp6-advanced-app
 
 ```bash
 docker compose up --build -d
+curl localhost:3000
 ```
+
+![ ](../Screenshots/Exp6/28h.png)
 
 ---
 
-## 🔹 Verify Application
+### 🔹 Rebuild & Verify Advanced App
+
+```bash
+docker compose up --build -d
+curl localhost:3000
+docker ps
+```
+
+![ ](../Screenshots/Exp6/28i.png)
+
+---
+
+### 🔹 Multi-Stage Dockerfile with Compose
+
+Requirements:
+- Multi-stage Dockerfile
+- Smaller final image
+- Use `build:` in Compose
+- Add environment variables
+- Add volume mount for development mode
+- Compare image size: `docker images`
+
+```bash
+docker compose up --build -d
+docker ps
+```
+
+![ ](../Screenshots/Exp6/28j.png)
+
+---
+
+### 🔹 Verify Application in Production Mode
 
 ```bash
 curl localhost:3001
 ```
 
-![ ](../Screenshots/Exp6/28i.png)  
-(Shows advanced-node-app running in production mode)
+![ ](../Screenshots/Exp6/28k.png)
 
 ---
-### Multi-Stage Dockerfile with Compose
- - Requirement:
-   - Create a simple Python FastAPI or Node production-ready app using:
-      - Multi-stage Dockerfile
-      - Smaller final image
-      - Use Compose to build it
- - Must:
-   - Write multi-stage Dockerfile
-   - Use build: in Compose
-   - Add environment variables
-   - Add volume mount for development mode
-   - Compare image size: `docker images`
 
-
-- Build and Run :
-  
-![ ](../Screenshots/Exp6/28j.png)
-
-![ ](../Screenshots/Exp6/28k.png)
-# 🧠 Difference Between Docker Run & Docker Compose
+## 🧠 Difference Between Docker Run & Docker Compose
 
 | Feature | Docker Run | Docker Compose |
-|----------|------------|---------------|
+|---|---|---|
 | Configuration | CLI-based | YAML file |
 | Multiple Containers | Manual | Automatic |
 | Networking | Manual setup | Auto-created |
@@ -225,7 +255,7 @@ curl localhost:3001
 
 ---
 
-# 🚀 Concepts Covered
+## 🚀 Concepts Covered
 
 - Containerization
 - Port Mapping (`-p host:container`)
@@ -239,61 +269,77 @@ curl localhost:3001
 
 ---
 
-# ❗ Errors Faced & Solutions
+## ❗ Errors Faced & Solutions
 
 ### 1️⃣ Port Already Allocated
-**Error:** Bind for 0.0.0.0 failed  
+**Error:** `Bind for 0.0.0.0 failed`  
 **Solution:** Stop existing container or change host port.
 
 ---
 
 ### 2️⃣ Container Name Conflict
 **Error:** Container name already in use  
-**Solution:** Remove existing container using:
-
+**Solution:**
 ```bash
 docker rm -f <container-name>
 ```
 
 ---
 
-### 3️⃣ Orphan Containers Warning
+### 3️⃣ Docker Credential Error
+**Error:** `error getting credentials – err: exit status 1`  
 **Solution:**
+```bash
+rm -rf ~/.docker
+docker pull node:18-alpine
+```
 
+---
+
+### 4️⃣ Orphan Containers Warning
+**Solution:**
 ```bash
 docker compose down --remove-orphans
 ```
 
 ---
 
-### 4️⃣ Database Connection Error (WordPress)
-**Solution:** Ensure MySQL and WordPress are on same Docker network.
+### 5️⃣ Database Connection Error (WordPress)
+**Solution:** Ensure MySQL and WordPress are on the same Docker network (`wp-net`).
 
 ---
 
-# 🏁 Result
+## 🏁 Result
 
 Successfully implemented:
 
-- Nginx container using Docker Run  
-- Docker Compose orchestration  
-- WordPress + MySQL networking  
-- Multi-stage Node.js build  
-- Port conflict resolution  
-- Real-world Docker troubleshooting  
+- ✅ Nginx container using Docker Run with port mapping and volume
+- ✅ Docker Compose orchestration (network + container lifecycle)
+- ✅ WordPress + MySQL multi-container networking on `wp-net`
+- ✅ Multi-stage Node.js builds (`exp6-nodeapp`, `exp6-advanced-app`)
+- ✅ `curl localhost:3001` → **"Running in production mode 🚀"**
+- ✅ Port conflict and credential error resolution
+- ✅ Orphan container cleanup with `--remove-orphans`
 
 ---
 
-# 📌 Conclusion
+## 📌 Conclusion
 
 This experiment provided hands-on experience in:
 
 - Managing containers using CLI and Compose
-- Building optimized Docker images
-- Implementing multi-container architecture
+- Building optimized Docker images with multi-stage builds
+- Implementing multi-container architecture with custom networks
 - Handling production-level Docker errors
-- Understanding networking and environment configurations
+- Understanding networking, volumes, and environment configurations
 
 The practical exposure enhanced understanding of container orchestration and deployment workflows.
 
 ---
+
+## 📚 References
+
+- [Docker Official Documentation](https://docs.docker.com/)
+- [Docker Compose Docs](https://docs.docker.com/compose/)
+- [Docker Networking](https://docs.docker.com/network/)
+- [Multi-stage Builds](https://docs.docker.com/build/building/multi-stage/)
