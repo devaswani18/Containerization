@@ -115,5 +115,40 @@ https://www.markdowntutorial.com/
 ![27Jan2](Screenshots/26d.png)
 ![27Jan2](Screenshots/26e.png)
 
+# 26th february
+
+![27Jan1](Screenshots/26aa.png)
+![27Jan2](Screenshots/26bb.png)
+
+# 18th march(Kubernetes)
+
+![27Jan1](Screenshots/18ma.png)
+![27Jan2](Screenshots/18mb.png)
+![27Jan1](Screenshots/18mc.png)
+![27Jan2](Screenshots/18md.png)
+![27Jan2](Screenshots/18me.png)
+
+# 20th march(Portainer)
+
+![27Jan1](Screenshots/20ma.png)
+![27Jan2](Screenshots/20mb.png)
+![27Jan1](Screenshots/20mc.png)
+![27Jan2](Screenshots/20md.png)
+
+# 25th march(Servertask)
+
+![27Jan1](Screenshots/25a.png)
+![27Jan2](Screenshots/25b.png)
+![27Jan1](Screenshots/25c.png)
+![27Jan2](Screenshots/25d.png)
+![27Jan2](Screenshots/25e.png)
+![27Jan2](Screenshots/25f.png)
+![27Jan2](Screenshots/25g.png)
+![27Jan2](Screenshots/25h.png)
+![27Jan2](Screenshots/25i.png)
+![27Jan2](Screenshots/25j.png)
+
+
+
 ---
 
