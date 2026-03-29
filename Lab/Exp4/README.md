@@ -77,51 +77,7 @@ CMD ["python", "app.py"]
 docker build -t my-flask-app .
 ```
 
-> 📸 **Screenshot `29a.png`** – Shows successful Docker image build process.
-
 ![ ](../Screenshots/Exp4/29a.png)
-
----
-
-### Run the Container
-
-```bash
-docker run -d -p 5000:5000 --name flask-container my-flask-app
-```
-
-### Test the Application
-
-```bash
-curl http://localhost:5000
-```
-
-> 📸 **Screenshot `29b.png`** – Shows Flask app responding: `Hello from Docker!`
-
-![ ](../Screenshots/Exp4/29b.png)
-
----
-
-### Check Running Containers
-
-```bash
-docker ps
-```
-
-> 📸 **Screenshot `29c.png`** – Shows container running with port mapping `5000:5000`.
-
-![ ](../Screenshots/Exp4/29c.png)
-
----
-
-### View Logs
-
-```bash
-docker logs flask-container
-```
-
-> 📸 **Screenshot `29d.png`** – Shows Flask server logs and successful request handling.
-
-![ ](../Screenshots/Exp4/29d.png)
 
 ---
 
@@ -139,25 +95,54 @@ docker tag my-flask-app:latest my-flask-app:v1.0
 docker history my-flask-app
 ```
 
-> 📸 **Screenshot `29e.png`** – Shows Docker image layers and commands used to build image.
-
-![ ](../Screenshots/Exp4/29e.png)
-
----
-
 ### Inspect the Image
 
 ```bash
 docker inspect my-flask-app
 ```
 
-> 📸 **Screenshot `29f.png`** – Shows detailed JSON metadata of the Docker image.
-
-![ ](../Screenshots/Exp4/29f.png)
+![ ](../Screenshots/Exp4/29b.png)
 
 ---
 
-## 🧩 Part 3 – Multi-Stage Build
+## 🧩 Part 3 – Run, Test & Manage Container
+
+### Run the Container
+
+```bash
+docker run -d -p 5000:5000 --name flask-container my-flask-app
+```
+
+### Test the Application
+
+```bash
+curl http://localhost:5000
+```
+
+### Check Running Containers
+
+```bash
+docker ps
+```
+
+### View Logs
+
+```bash
+docker logs flask-container
+```
+
+### Stop & Remove Container
+
+```bash
+docker stop flask-container
+docker rm flask-container
+```
+
+![ ](../Screenshots/Exp4/29c.png)
+
+---
+
+## 🧩 Part 4 – Multi-Stage Build
 
 ### `Dockerfile.multistage`
 
@@ -187,13 +172,21 @@ EXPOSE 5000
 CMD ["python", "app.py"]
 ```
 
----
+### Build Regular Image (for size comparison)
 
-### Build the Multi-stage Image
+```bash
+docker build -t flask-regular .
+```
+
+### Build Multi-stage Image
 
 ```bash
 docker build -f Dockerfile.multistage -t flask-multistage .
 ```
+
+![ ](../Screenshots/Exp4/29d.png)
+
+---
 
 ### Compare Image Sizes
 
@@ -201,41 +194,17 @@ docker build -f Dockerfile.multistage -t flask-multistage .
 docker images | grep flask-
 ```
 
-> 📸 **Screenshot `29g.png`** – Shows multiple Flask images including multi-stage build.
-
-![ ](../Screenshots/Exp4/29g.png)
-
-| Feature | Standard Build | Multi-stage Build |
-|---|---|---|
-| Image Size | Larger | ✅ Smaller |
-| Security | Root user | ✅ Non-root user |
-| Production Ready | Moderate | ✅ Optimized |
+![ ](../Screenshots/Exp4/29e.png)
 
 ---
 
-## 🧩 Part 4 – Container Management
-
-### Stop the Container
+## 🧩 Part 5 – Docker Image Registry Overview
 
 ```bash
-docker stop flask-container
+docker images
 ```
 
-### Remove the Container
-
-```bash
-docker rm flask-container
-```
-
-### Force Remove (if still running)
-
-```bash
-docker rm -f flask-container
-```
-
-> 📸 **Screenshot `29h.png`** – Shows container stop and removal process.
-
-![ ](../Screenshots/Exp4/29h.png)
+![ ](../Screenshots/Exp4/29f.png)
 
 ---
 
@@ -245,12 +214,13 @@ docker rm -f flask-container
 |---|---|
 | `Dockerfile` | Blueprint for building a Docker image |
 | Dependency Installation | `pip install` inside the image via `RUN` |
-| Port Mapping | `-p host:container` to expose container ports |
+| Port Mapping | `-p 5000:5000` maps host port to container port |
 | Logs & Status | `docker logs` and `docker ps` for monitoring |
-| Image Tagging | Versioning images with `docker tag` |
-| Image Inspection | Metadata via `docker inspect` and `docker history` |
+| Image Tagging | Versioning images with `docker tag` (`v1.0`) |
+| Image Inspection | Layer metadata via `docker inspect` and `docker history` |
 | Multi-stage Builds | Separate builder and runtime stages for optimized images |
-| Non-root User | Security best practice using `useradd` + `USER` directive |
+| Non-root User | Security best practice using `useradd` + `USER appuser` |
+| Force Remove | `docker rm -f` to remove running containers |
 
 ---
 
@@ -258,12 +228,13 @@ docker rm -f flask-container
 
 Successfully:
 
-- ✅ Containerized a Flask application
-- ✅ Built and tagged Docker images
-- ✅ Verified image layers and metadata
-- ✅ Implemented multi-stage build
-- ✅ Compared image sizes
-- ✅ Managed container lifecycle
+- ✅ Containerized a Flask application using a Dockerfile
+- ✅ Built image `my-flask-app:latest` (200MB) and tagged as `v1.0`
+- ✅ Ran container with port mapping `5000:5000` and verified `Hello from Docker!`
+- ✅ Inspected image layers and JSON metadata via `docker history` and `docker inspect`
+- ✅ Implemented multi-stage build (`flask-multistage`, 219MB)
+- ✅ Compared image sizes across `flask-regular`, `my-flask-app`, and `flask-multistage`
+- ✅ Managed full container lifecycle (run → stop → remove)
 
 > Docker concepts were successfully implemented and verified.
 
