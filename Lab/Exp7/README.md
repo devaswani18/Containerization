@@ -182,7 +182,7 @@ docker-compose up -d
 docker exec -it jenkins cat /var/jenkins_home/secrets/initialAdminPassword
 ```
 
-![ ](img/7b.png)
+![ ](../Screenshots/Exp7/7b.png)
 
 ---
 
@@ -190,7 +190,7 @@ docker exec -it jenkins cat /var/jenkins_home/secrets/initialAdminPassword
 
 Access Jenkins at `http://localhost:8091`, paste the password obtained from the command above and click **Continue**:
 
-![ ](img/7a.png)
+![ ](../Screenshots/Exp7/7a.png)
 
 ---
 
@@ -198,7 +198,7 @@ Access Jenkins at `http://localhost:8091`, paste the password obtained from the 
 
 Select **Install suggested plugins** to install all recommended plugins:
 
-![ ](img/7c.png)
+![ ](../Screenshots/Exp7/7c.png)
 
 ---
 
@@ -215,7 +215,7 @@ Account Settings → Personal access tokens → New access token
 - Description: `Docker Hub Token`
 - Permissions: `Read & Write`
 
-![ ](img/7e.png)
+![ ](../Screenshots/Exp7/7e.png)
 
 ---
 
@@ -229,14 +229,14 @@ Manage Jenkins → Credentials → Add Credentials
 
 Select **Secret text** as the credential type:
 
-![ ](img/7d.png)
+![ ](../Screenshots/Exp7/7d.png)
 
 - ID: `dockerhub-token`
 - Value: Docker Hub Access Token generated above
 
 Credential saved successfully:
 
-![ ](img/7f.png)
+![ ](../Screenshots/Exp7/7f.png)
 
 ---
 
@@ -255,11 +255,11 @@ Repository URL: https://github.com/devaswani18/my-app.git
 Script Path: Jenkinsfile
 ```
 
-![ ](img/7g.png)
+![ ](../Screenshots/Exp7/7g.png)
 
 Pipeline job created — no builds yet:
 
-![ ](img/7h.png)
+![ ](../Screenshots/Exp7/7h.png)
 
 ---
 
@@ -276,7 +276,7 @@ lt --port 8091
 
 Public URL generated: `https://three-readers-listen.loca.lt`
 
-![ ](img/7i.png)
+![ ](../Screenshots/Exp7/7i.png)
 
 ---
 
@@ -292,7 +292,7 @@ Settings → Webhooks → Add Webhook
 - Content type: `application/json`
 - Trigger: **Just the push event**
 
-![ ](img/7j.png)
+![ ](../Screenshots/Exp7/7j.png)
 
 ---
 
@@ -322,7 +322,7 @@ The `ci-cd-pipeline` job shows:
 - ⚠️ Build **#2** — Unsuccessful
 - ❌ Build **#1** — Failed
 
-![ ](img/7k.png)
+![ ](../Screenshots/Exp7/7k.png)
 
 ---
 
@@ -330,7 +330,7 @@ The `ci-cd-pipeline` job shows:
 
 The Docker image `devaswani18/myapp` is successfully pushed to Docker Hub and visible in the repositories list (Last pushed: 3 minutes ago):
 
-![ ](img/7l.png)
+![ ](../Screenshots/Exp7/7l.png)
 
 ---
 
@@ -344,13 +344,13 @@ docker run -p 8085:80 devaswani18/myapp:latest
 
 Flask app starts and serves on all addresses:
 
-![ ](img/7m.png)
+![ ](../Screenshots/Exp7/7m.png)
 
 ---
 
 Open `http://localhost:8085` in the browser to verify the application:
 
-![ ](img/7n.png)
+![ ](../Screenshots/Exp7/7n.png)
 
 ---
 
