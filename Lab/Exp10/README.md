@@ -1,4 +1,4 @@
-# Experiment 10: SonarQube – Static Code Analysis
+# Experiment 10: SonarQube
 
 ---
 
