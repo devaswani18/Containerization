@@ -1,9 +1,7 @@
 # Containerization and DevOps
 
 **Name:** Dev Aswani
-
 **SAP ID:** 500126338
-
 **Batch:** 1 (CCVT)
 
 ---
@@ -30,6 +28,8 @@ Containerization/
 │   ├── Exp8/       - Chef Configuration Management
 │   ├── Exp9/       - Ansible Automation using Docker Servers
 │   ├── Exp10/      - SonarQube Static Code Analysis
+│   ├── Exp11/      - Orchestration using Docker Compose & Docker Swarm
+│   ├── Exp12/      - Container Orchestration using Kubernetes
 │   └── Screenshots/ - All lab screenshots organized by experiment
 ├── Assignment-1/   - Course Assignment
 └── Theory/         - Theory notes and documentation
@@ -52,6 +52,8 @@ Containerization/
 | Exp8 | Chef Configuration Management (Solo & Server) |
 | Exp9 | Ansible Automation using Docker-based SSH Servers |
 | Exp10 | SonarQube Static Code Analysis with Docker & Java |
+| Exp11 | Orchestration using Docker Compose & Docker Swarm |
+| Exp12 | Container Orchestration using Kubernetes (k3d) |
 
 ---
 
@@ -66,6 +68,8 @@ Containerization/
 - **Configuration Management** — Chef Solo and Chef Server (pull-based model)
 - **Infrastructure Automation** — Ansible playbooks with SSH-based Docker servers
 - **Static Code Analysis** — SonarQube for detecting bugs, vulnerabilities, and code smells
+- **Container Orchestration** — Docker Swarm scaling, self-healing, and load balancing
+- **Kubernetes** — Deployments, Services, ReplicaSets, scaling, and self-healing with k3d
 
 ---
 
